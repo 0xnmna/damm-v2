@@ -172,7 +172,12 @@ impl PoolFeesStruct {
         let lp_fee: u64 =
             safe_mul_div_cast_u64(amount, trade_fee_numerator, FEE_DENOMINATOR, Rounding::Up)?;
         // update amount
+        msg!("SIM fee on amount: {:?}", amount);
         let amount = amount.safe_sub(lp_fee)?;
+
+        msg!("SIM lp fee numerator: {}", trade_fee_numerator);
+        msg!("SIM lp fee denominator: {}", FEE_DENOMINATOR);
+        msg!("SIM protocol fee %: {}", self.protocol_fee_percent);
 
         let protocol_fee = safe_mul_div_cast_u64(
             lp_fee,
