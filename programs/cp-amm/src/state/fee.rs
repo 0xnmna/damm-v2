@@ -342,6 +342,9 @@ impl FeeMode {
         let collect_fee_mode = CollectFeeMode::try_from(collect_fee_mode)
             .map_err(|_| PoolError::InvalidCollectFeeMode)?;
 
+        msg!("collect_fee_mode: {:?}", collect_fee_mode);
+        msg!("trade_direction: {:?}", trade_direction);
+
         let (fees_on_input, fees_on_token_a) = match (collect_fee_mode, trade_direction) {
             // When collecting fees on output token
             (CollectFeeMode::BothToken, TradeDirection::AtoB) => (false, false),
