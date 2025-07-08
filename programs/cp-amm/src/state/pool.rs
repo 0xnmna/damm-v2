@@ -412,6 +412,7 @@ impl Pool {
         let mut actual_partner_fee = 0;
 
         msg!("SIM: amount_in: {}", amount_in);
+        msg!("Fees on input: {:?}", fee_mode.fees_on_input);
 
         let actual_amount_in = if fee_mode.fees_on_input {
             let FeeOnAmountResult {
