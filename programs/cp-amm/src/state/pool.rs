@@ -411,6 +411,8 @@ impl Pool {
         let mut actual_referral_fee = 0;
         let mut actual_partner_fee = 0;
 
+        msg!("SIM: amount_in: {}", amount_in);
+
         let actual_amount_in = if fee_mode.fees_on_input {
             let FeeOnAmountResult {
                 amount,
